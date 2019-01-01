@@ -22,4 +22,27 @@ func Reverse(s []int) {
 	}
 }
 
-/**************** reverse 数组反转函数 *********************/
+/**************** BinarySearch 二分查找 *********************/
+/*
+ * nums: 数组切片的元素
+ * target: 给定要查找的元素值
+ */
+func BinarySearch(nums []int, target int) int {
+	low := 0
+	high := len(nums) - 1
+
+	for low <= high { // 范围不能缩小到只包含一个元素
+		mid := (low + high) / 2 // 当前比较的数组下标
+		if nums[mid] == target {
+			return mid
+		} else if nums[mid] > target {
+			high = mid - 1
+		} else if nums[mid] < target {
+			low = mid + 1
+		} else {
+			mid = -1
+		}
+	}
+
+	return -1
+}

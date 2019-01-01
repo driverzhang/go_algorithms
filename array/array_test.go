@@ -19,3 +19,10 @@ func TestRunStack(t *testing.T) {
 	RunStack()
 	t.Log("ok")
 }
+
+func TestBinarySearch(t *testing.T) {
+	tt := []int{-1, 0, 3, 5, 9, 12}
+	target := 5
+	i := BinarySearch(tt, target)
+	t.Log(i)
+}
