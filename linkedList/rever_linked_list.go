@@ -1,6 +1,8 @@
 package linkedList
 
-import "go.zhuzi.me/go/log"
+import (
+	"fmt"
+)
 
 /*
  * Definition for singly-linked list.
@@ -30,9 +32,26 @@ func Run() {
 	ln2.Next = ln3
 	ln3.Next = ln4
 	ln4.Next = ln5
-
+	head.Print()
 	p := ReverseList(head)
-	log.Error(p)
+	p.Print()
+}
+
+func (c *ListNode) Print() {
+	cur := c
+	format := ""
+	for cur != nil {
+		format += fmt.Sprintf("%+v", cur.Val)
+		cur = cur.Next
+		if cur != nil {
+			format += "->"
+		} else {
+			format += "-> nil"
+
+		}
+	}
+
+	fmt.Println(format)
 }
 
 func ReverseList(head *ListNode) *ListNode {
